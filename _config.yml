@@ -7,7 +7,7 @@ permalink:           pretty
 # Setup
 title:               'DeadlySyn Blog'
 tagline:             'Strong opinions, weakly held.'
-description:         'DevOps, space travel, automobiles, gadgets, social issues and politics (God forbid!)'
+description:         'DevOps, space travel, automobiles, gadgets, and other random babblings...'
 url:                 http://deadlysyn.github.io
 baseurl:             '/blog'
 production_url:      http://deadlysyn.github.io.com/blog
@@ -17,7 +17,7 @@ paginate:            5
 # About/contact
 author:
   name:              Mike Hoskins
-  url:               https://deadlysyn.com
+  url:               http://deadlysyn.com
   email:             unixdoes@gmail.com
 
 # Custom vars
