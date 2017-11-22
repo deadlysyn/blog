@@ -7,9 +7,11 @@ relative_permalinks: true
 # Setup
 title:               'DeadlySyn Blog'
 tagline:             'Strong opinions, weakly held.'
-description:         'DevOps, space travel, automobiles, gadgets, social issues and politics (God Forbid!)'
+description:         'DevOps, space travel, automobiles, gadgets, social issues and politics (God forbid!)'
 url:                 http://deadlysyn.github.io
-baseurl:             '/blog/'
+baseurl:             '/blog'
+production_url:      http://deadlysyn.github.io.com/blog
+BASE_PATH:           http://deadlysyn.com/blog
 paginate:            5
 
 # About/contact
