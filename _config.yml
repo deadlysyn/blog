@@ -1,0 +1,22 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
+
+# Setup
+title:               'DeadlySyn Blog'
+tagline:             'Strong opinions, weakly held.'
+description:         'DevOps, space travel, automobiles, gadgets, social issues and politics (God Forbid!)'
+url:                 http://deadlysyn.github.io
+baseurl:             '/blog/'
+paginate:            5
+
+# About/contact
+author:
+  name:              Mike Hoskins
+  url:               https://deadlysyn.com
+  email:             unixdoes@gmail.com
+
+# Custom vars
+version:             1.0.0
