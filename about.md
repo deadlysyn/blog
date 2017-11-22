@@ -4,27 +4,30 @@ title: About
 ---
 
 <p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
+  The opinions in this blog are mine and mine alone, based on little more than my own personal experience
+  and the influences in my life to date (whether organic or written).  I strongly believe everyone is
+  entitled to their opinions, and respectful discussion of dissenting viewpoints is how we continue
+  to learn and grow.  You have been warned.
 </p>
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+Welcome to my blog.  Wow, that sounds weird.  I forever swore to myself I'd never sink to blogging...not because blogging itself is evil in some way, but because of a few biases I needed to overcome:
 
-There are currently two themes built on Poole:
+1. Coming from a Web 1.0 world where this sort of thing would have been built from scratch, part of me felt blogging just wasn't geeky enough when based on canned "platforms".
+2. Information security is an ongoing hobby...  I have a day job that I devote a lot of time to, do I need to spend extra time ensuring my "blogging platform" has all the relevant security updates?
+3. I've always quietly wondered, "Who in the world needs to hear yet another OPINION?!?"
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+Finding Jekyll addressed #1 for me, since I can now "blog like a hacker"...  it's just fun mixing up YAML, HTML, templating, git and all the other technologies inolved.
 
-Learn more and contribute on [GitHub](https://github.com/poole).
+As it turns out, Jekyll also helped alleviate #2...it's not for everyone, but I much prefer template-based generation of static content.  No databases, no PHP...  fewer moving parts, less surface area to worry about in a hostile world.
 
-## Setup
+Last but not least...  opinions are like noses, most people have them!  This required a slight change of perspective on my part.  If someone actually finds one of my many opions useful, so be it, but the larger reason for collecting interesting things in a version-controlled, searchable archive is to supplement my own shoddy memory.  :-)
 
-Some fun facts about the setup of this project include:
+## Still Reading?
 
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
+Not sure why, but if you got this far...  maybe you'll want to go further:
 
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
+* [My Home Page](http://deadlysyn.com)
+* [GitHub Profile](https://github.com/deadlysyn)
+* [LinkedIn Profile](https://www.linkedin.com/in/mikehoskins)
 
 Thanks for reading!
