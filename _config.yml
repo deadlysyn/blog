@@ -1,13 +1,15 @@
 # Permalinks
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
+#permalink:           pretty
+
+# deprecated - breaks github pages builds
 #relative_permalinks: true
 
 # Setup
 title:               'DeadlySyn Blog'
 tagline:             'Strong opinions, weakly held.'
-description:         'DevOps, space travel, automobiles, gadgets, and other random babblings...'
+description:         'DevOps, SRE, programming, automation, scalability, space travel, fast cars, gadgets, and other random babblings...'
 url:                 http://deadlysyn.github.io
 baseurl:             '/blog'
 production_url:      http://deadlysyn.github.io.com/blog
