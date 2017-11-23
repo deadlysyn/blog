@@ -16,7 +16,7 @@ baseurl:             '/blog'
 #production_url:      http://deadlysyn.github.io.com/blog
 production_url:      http://deadlysyn.com/blog
 BASE_PATH:           http://deadlysyn.com/blog
-paginate:            10
+paginate:            5
 
 # About/contact
 author:
