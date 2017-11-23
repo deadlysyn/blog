@@ -1,15 +1,15 @@
 # Permalinks
-#
-# Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
+#permalink:           pretty
+permalink:           date
 
+# Use of `relative_permalinks` ensures post links from the index work properly.
 # deprecated - breaks github pages builds
 #relative_permalinks: true
 
 # Setup
 title:               'DeadlySyn Blog'
 tagline:             'Strong opinions, weakly held.'
-description:         'DevOps, SRE, programming, automation, scalability, space travel, fast cars, gadgets, and other random babblings...'
+description:         'DevOps, SRE, coding, scalability, space travel, fast cars, gadgets, and other random babblings...'
 #url:                 http://deadlysyn.github.io/blog
 url:                 http://deadlysyn.com/blog
 baseurl:             '/blog'
@@ -17,12 +17,18 @@ baseurl:             '/blog'
 production_url:      http://deadlysyn.com/blog
 BASE_PATH:           http://deadlysyn.com/blog
 paginate:            5
+timezone:            America/New_York
 
 # About/contact
 author:
   name:              Mike Hoskins
   url:               http://deadlysyn.com
   email:             unixdoes@gmail.com
+
+# Includes an icon in the footer for each user name you enter
+footer-links:
+  github: deadlysyn
+  linkedin: mikehoskins
 
 # Custom vars
 version:             1.0.1
