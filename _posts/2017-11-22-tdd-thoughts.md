@@ -5,8 +5,6 @@ title: TDD Thoughts
 categories: tdd sre dev
 author: Mike Hoskins
 ---
-## TDD Thoughts
-
 Coming from a Computer Science background academically, and in a fervant effort to embrace the "E" in SRE (Site Reliability Engineering), I have been spending a fair amount of time "drinking the Kool-Aid" when it comes to modern development practices.
 
 While controversial in some circles (a few minutes with your favorite search engine will find plenty who love it, and others that adamantly hate it), I think the industry at large has accepted that Test Driven Development (TDD), or perhaps more appropriately Behavior Driven Development (BDD), makes it easier for developers to have confidence in their code and iterate faster.
