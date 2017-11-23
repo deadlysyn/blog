@@ -3,6 +3,7 @@ layout: post
 title: Hello World!
 published: true
 categories: test blog jekyll github
+author: Mike Hoskins
 ---
 
 
