@@ -3,6 +3,7 @@ published: true
 layout: post
 title: TDD Thoughts
 categories: tdd sre dev
+author: Mike Hoskins
 ---
 ## TDD Thoughts
 
