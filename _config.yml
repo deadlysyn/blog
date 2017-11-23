@@ -10,11 +10,13 @@
 title:               'DeadlySyn Blog'
 tagline:             'Strong opinions, weakly held.'
 description:         'DevOps, SRE, programming, automation, scalability, space travel, fast cars, gadgets, and other random babblings...'
-url:                 http://deadlysyn.github.io
+#url:                 http://deadlysyn.github.io/blog
+url:                 http://deadlysyn.com/blog
 baseurl:             '/blog'
-production_url:      http://deadlysyn.github.io.com/blog
+#production_url:      http://deadlysyn.github.io.com/blog
+production_url:      http://deadlysyn.com/blog
 BASE_PATH:           http://deadlysyn.com/blog
-paginate:            5
+paginate:            10
 
 # About/contact
 author:
@@ -23,4 +25,4 @@ author:
   email:             unixdoes@gmail.com
 
 # Custom vars
-version:             1.0.0
+version:             1.0.1
