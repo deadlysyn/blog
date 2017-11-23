@@ -2,6 +2,7 @@
 published: true
 layout: post
 title: TDD Thoughts
+categories: tdd sre dev
 ---
 ## TDD Thoughts
 
