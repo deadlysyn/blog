@@ -2,10 +2,11 @@
 layout: post
 title: Hello World!
 published: true
+categories: test blog jekyll github
 ---
 
 
-As the name implies, this is my first attempt at a blog post created using [Jekyl](https://jekyllrb.com) and [GitHub Pages](https://pages.github.com)...  be afraid, be VERY afraid!
+As the name implies, this is my first attempt at a blog post created using [Jekyll](https://jekyllrb.com) and [GitHub Pages](https://pages.github.com)...  be afraid, be VERY afraid!
 
 For anyone interested in a similar diversion...  The mobile-friendly theme is [Lanyon](https://github.com/poole/lanyon), and here's [an awesome read to get started](https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages) if you've never played with Jekyl before (while based around a different theme, it's a thorough overview of the setup and publishing process).
 
