@@ -25,10 +25,5 @@ author:
   url:               http://deadlysyn.com
   email:             unixdoes@gmail.com
 
-# Includes an icon in the footer for each user name you enter
-footer-links:
-  github: deadlysyn
-  linkedin: mikehoskins
-
 # Custom vars
-version:             1.0.1
+version:             1.0.2
