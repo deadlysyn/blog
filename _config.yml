@@ -1,29 +1,95 @@
-# Permalinks
-#permalink:           pretty
-permalink:           date
-
-# Use of `relative_permalinks` ensures post links from the index work properly.
-# deprecated - breaks github pages builds
-#relative_permalinks: true
-
-# Setup
-title:               'DeadlySyn Blog'
-tagline:             'Strong opinions, weakly held.'
-description:         'DevOps, SRE, coding, scalability, space travel, fast cars, gadgets, and other random babblings...'
-#url:                 http://deadlysyn.github.io/blog
-url:                 http://deadlysyn.com/blog
-baseurl:             '/blog'
-#production_url:      http://deadlysyn.github.io.com/blog
-production_url:      http://deadlysyn.com/blog
-BASE_PATH:           http://deadlysyn.com/blog
+title:               "Yet Another Blog"
+tagline:             "Strong opinions, weakly held."
+description:         "DevOps, SRE, coding, distributed systems, scalability, space travel, fast cars, gadgets, and other random babblings in no particular order..."
+baseurl:             "/blog"
+url:                 "http://deadlysyn.com"
+production_url:      "http://deadlysyn.com"
+#BASE_PATH:           http://deadlysyn.com/blog
 paginate:            5
-timezone:            America/New_York
+permalink:           "pretty"
+publish:             true
+timezone:            "America/New_York"
+
+# Custom vars
+version:             1.0.3
 
 # About/contact
 author:
-  name:              Mike Hoskins
-  url:               http://deadlysyn.com
-  email:             unixdoes@gmail.com
+  name:              "Mike Hoskins"
+  url:               "http://deadlysyn.com"
+  email:             "unixdoes@gmail.com"
+  github:            "https://github.com/deadlysyn"
+  linkedin:          "https://www.linkedin.com/in/mikehoskins"
 
-# Custom vars
-version:             1.0.2
+prose:
+  rooturl:           "_posts"
+  siteurl:           "http://deadlysyn.com/"
+  relativeLinks:     "http://deadlysyn.com/links.jsonp"
+  media:             "media"
+  ignore:
+    - atom.xml
+    - index.html
+    - 404.html
+    - _config.yml
+    - /_includes
+    - /_layouts
+    - /public
+  metadata:
+    _posts:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
+      - name: "author"
+        field:
+          element: "hidden"
+          value: "Mike Hoskins"
+    - name: "category"
+      field:
+        element: "select"
+        label: "Select Category"
+        placeholder: "Choose Category"
+        options:
+          - name: "Apple"
+            value: "apple"
+          - name: "Blog Post"
+            value: "blog"
+          - name: "Cars"
+            value: "cars"
+          - name: "Cloud"
+            value: "cloud"
+          - name: "Development"
+            value: "development"
+          - name: "Security"
+            value: "security"
+          - name: "UNIX"
+            value: "unix"
+          - name: "Work"
+            value: "work"
+    - name: "tags"
+      field:
+        element: "multiselect"
+        label: "Add Tags"
+        placeholder: "Choose Tags"
+        alterable: true
+        options:
+          - name: "CI/CD"
+            value: "cicd"
+          - name: "CLI"
+            value: "cli"
+          - name: "Docker"
+            value: "docker"
+          - name: "Golang"
+            value: "golang"
+          - name: "Humor"
+            value: "humor"
+          - name: "Javascript"
+            value: "javascript"
+          - name: "Monitoring"
+            value: "monitoring"
+          - name: "Python"
+            value: "python"
+          - name: "SRE"
+            value: "sre"
+          - name: "UNIX"
+            value: "unix"
