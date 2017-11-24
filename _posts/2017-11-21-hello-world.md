@@ -21,4 +21,4 @@ Related resources:
 - [Prose: Getting Started](https://github.com/prose/prose/wiki/Getting-Started)
 - [Prose: Configuration](https://github.com/prose/prose/wiki/Prose-Configuration)
 - [\_config.yml example](https://tigefa.readthedocs.io/en/latest/config.html)
-- [More Prose Configuration](https://joshuacox.github.io/jekyll/2015/12/04/Prose-Configuration/)
+- [More Prose Configuration](https://joshuacox.github.io/jekyll/2015/12/04/Prose-Configuration)
