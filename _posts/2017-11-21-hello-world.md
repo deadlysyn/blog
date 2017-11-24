@@ -15,6 +15,10 @@ Stay tuned for more earth shattering posts!
 
 Related resources:
 
-- [Browser-based Markdown Editor](http://prose.io)
 - [Using a Custom Domain with GitHub Pages](https://help.github.com/articles/using-a-custom-domain-with-github-pages)
 - [Troubleshooting Custom Domains](https://help.github.com/articles/troubleshooting-custom-domains)
+- [Browser-based Markdown Editor](http://prose.io)
+- [Prose: Getting Started](https://github.com/prose/prose/wiki/Getting-Started)
+- [Prose: Configuration](https://github.com/prose/prose/wiki/Prose-Configuration)
+- [\_config.yml example](https://tigefa.readthedocs.io/en/latest/config.html)
+- [More Prose Configuration](https://joshuacox.github.io/jekyll/2015/12/04/Prose-Configuration/)
