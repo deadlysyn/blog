@@ -1,5 +1,9 @@
 ---
-published: false
+published: true
+layout: post
+title: Gobble Gobble
+categories: work
+author: Mike Hoskins
 ---
 Today is Thanksgiving...  so I did the only sensible thing, and carefully avoided any shopping or discounts to instead take time to introspect).
 
