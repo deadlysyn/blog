@@ -1,9 +1,13 @@
 ---
-published: true
+author: Mike Hoskins
 layout: post
+published: true
 title: TDD Thoughts
 categories: tdd sre dev
-author: Mike Hoskins
+category: development
+tags:
+  - sre
+  - TDD
 ---
 Coming from a Computer Science background academically, and in a fervant effort to embrace the "E" in SRE (Site Reliability Engineering), I have been spending a fair amount of time "drinking the Kool-Aid" when it comes to modern development practices.
 
