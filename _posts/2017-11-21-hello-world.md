@@ -1,9 +1,10 @@
 ---
+author: Mike Hoskins
 layout: post
 title: Hello World!
 published: true
 categories: test blog jekyll github
-author: Mike Hoskins
+category: blog
 ---
 As the name implies, this is my first attempt at a blog post created using [Jekyll](https://jekyllrb.com) and [GitHub Pages](https://pages.github.com)...  be afraid, be VERY afraid!
 
