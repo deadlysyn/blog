@@ -7,7 +7,7 @@ category: blog
 * TOC
 {:toc}
 
-### Background
+## Background
 
 My academic background is CSCE.  Since then, I've been in the Internet industry for over twenty years.  Many of those years were on cross-functional infrastructure teams that were either small enough not to give much thought at all to categorizing how we planned or worked, and several were in larger companies which followed strict Waterfall (the norm back then).  As non-Agile as you can get, and to be honest I had little interest in learning other ways to work at the time.  I am a UNIX and coding geek at heart, and if learning something required looking away from a terminal it was hard to get my attention in those formative years.
 
@@ -29,7 +29,7 @@ If you've been engaged in intergalactic travel over the past decade and not hear
 
 For the purpose of this post, we only need to understand one XP concept...
 
-### XP Values
+## XP Values
 
 XP practices center around a set of shared values.  The key thought is that, by taking these values to heart and letting them guide our daily practices, we can both pragmatically apply the common patterns (TDD, incremental design, continuous feedback, etc.) and invent new patterns when needed.  It is this pragmatism that initially sold me on XP.
 
@@ -49,7 +49,7 @@ Partially because of needing to directly drive the hiring process, and partially
 
 There is a lot of welcome buzz around diversity and fairness of late, a large part of which is how companies acquire talent...  Many companies struggling with this already have engineering teams, many of which practice XP in some form.  With that in mind, let's see how the XP values (as a convenient starting point already familiar to many) can help improve the hiring process.
 
-### Recent Examples
+## Recent Examples
 
 While the values speak very well for themselves (a nod to the wisdom of those who helped chose them), I wanted to take a quick tour through a recent job search and give concrete examples where the presence of practices inspired by XP values caused delight, or the absence of such practices caused something else entirely.
 
@@ -109,7 +109,7 @@ In XP, courage takes many forms...  one of which is the willingness not to becom
 
 In hiring, this also takes many forms...  so I'll give one important example -- honestly communicate bad news quickly.  Don't put off communicating bad news because it's hard.  Waiting is harder for the candidate.  Don't wait until you've interviewed a handful of candidates to ensure you have better options.  Have clear evaluation criteria, and if someone doesn't meet them, say so.  No need for more examples here, I've described one already in _Communication_ above.  When you have something to do that seems hard, be courageous.
 
-### Summary
+## Summary
 
 None of these principles are rocket science.  That's what makes them so appealing.  They are easy to understand, but take a lifetime of practice to consistently apply.  Just like XP, you don't have to adopt all of them...any can help.  Pick one that will have the most impact, practice until it is second nature, then pick the next most impactful.  Track progress, and strive to improve.  Hold one another accountable.
 
