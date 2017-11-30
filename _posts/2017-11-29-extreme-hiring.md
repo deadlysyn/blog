@@ -1,7 +1,7 @@
 ---
 author: Mike Hoskins
 layout: post
-published: false
+published: true
 category: blog
 ---
 * TOC
