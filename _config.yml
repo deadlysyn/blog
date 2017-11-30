@@ -5,7 +5,7 @@ baseurl:             "/blog"
 url:                 "http://deadlysyn.com"
 production_url:      "http://deadlysyn.com"
 #BASE_PATH:           http://deadlysyn.com/blog
-paginate:            5
+paginate:            3
 permalink:           "pretty"
 publish:             true
 timezone:            "America/New_York"
@@ -44,6 +44,10 @@ prose:
         field:
           element: "hidden"
           value: "Mike Hoskins"
+      - name: "published"
+        field:
+          element: "hidden"
+          value: true
       - name: "category"
         field:
           element: "select"
