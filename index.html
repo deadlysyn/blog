@@ -3,84 +3,36 @@ layout: default
 title: Home
 ---
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6">
+<div class="posts">
+  {% for post in paginator.posts %}
+  <div class="post">
+    <h1 class="post-title">
+      <a href="{{ site.baseurl }}/{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </h1>
 
-            <div class="posts">
-                {% for post in paginator.posts %}
-                <div class="post">
-                    <h1 class="post-title">
-                        <a href="{{ site.baseurl }}/{{ post.url }}">
-                            {{ post.title }}
-                        </a>
-                    </h1>
+    <span class="post-date">{{ post.date | date_to_string }}</span>
 
-                    <span class="post-date">{{ post.date | date_to_string }}</span>
-
-                    {{ post.content }}
-                </div>
-                {% endfor %}
-            </div>
-
-            <div class="pagination">
-                {% if paginator.next_page %}
-                <a class="pagination-item older" href="{{ site.baseurl }}/page{{paginator.next_page}}">Older</a>
-                {% else %}
-                <span class="pagination-item older">Older</span>
-                {% endif %}
-                {% if paginator.previous_page %}
-                {% if paginator.page == 2 %}
-                <a class="pagination-item newer" href="{{ site.baseurl }}/">Newer</a>
-                {% else %}
-                <a class="pagination-item newer" href="{{ site.baseurl }}/page{{paginator.previous_page}}">Newer</a>
-                {% endif %}
-                {% else %}
-                <span class="pagination-item newer">Newer</span>
-                {% endif %}
-            </div>
-
-        </div>
-        <div class="col-lg-6">
-
-            <div>
-                <ul id="myTab" class="nav nav-tabs">
-{% for category in site.categories %}
-    {% capture cn %}{{ category | first }}{% endcapture %}
-    {% if categoryname != cn %}
-        {% assign categoryname = cn %}
-        <li{% if forloop.first %} class="active"{% endif %}>
-          <a href="/{{ page.lang }}/categories/#aa{{ cn }}" data-toggle="tab">{{ category | first }}</a>
-    </li>
-    {% endif %}
-{% endfor %}
-</ul>
-<div id="myTabContent" class="tab-content">
-{% for category in site.categories %}
-    {% capture cn %}{{ category | first }}{% endcapture %}
-    {% if categoryname != cn %}
-        {% assign categoryname = cn %}
-                {% if forloop.first %}{% else %}</div>{% endif %}
-                <div class="tab-pane fade{% if forloop.first %} in active{% endif %}" id="aa{{ cn }}">
-    {% endif %}
-    {% for post in category.last %}
-    {% if post.lang contains page.lang %}
-      <p>
-      <time datetime="{{ post.date | date_to_string }}">{{ post.date | date: "%Y-%m-%d" }}</time>
-      <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-      </p>
-    {% endif %}
-    {% endfor %}
-{% endfor %}
+    {{ post.content }}
+  </div>
+  {% endfor %}
 </div>
-</div>
-<script>
-    $(function () {
-        $('#myTab a[href="/{{ page.lang }}/categories/'+window.location.hash+'"]').tab('show');
-    });
-</script>
-            </div>
 
-        </div>
-    </div>
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-item older" href="{{ site.baseurl }}/page{{paginator.next_page}}">Older</a>
+  {% else %}
+    <span class="pagination-item older">Older</span>
+  {% endif %}
+  {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
+      <a class="pagination-item newer" href="{{ site.baseurl }}/">Newer</a>
+    {% else %}
+      <a class="pagination-item newer" href="{{ site.baseurl }}/page{{paginator.previous_page}}">Newer</a>
+    {% endif %}
+  {% else %}
+    <span class="pagination-item newer">Newer</span>
+  {% endif %}
 </div>
+
