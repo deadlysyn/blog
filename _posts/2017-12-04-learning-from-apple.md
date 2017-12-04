@@ -2,6 +2,10 @@
 published: true
 author: Mike Hoskins
 layout: post
+category: security
+tags:
+  - computing
+  - tdd
 ---
 I'm one of many in the industry to note that Apple had a pretty bad time last week...  while it's not the first time they've had security flaws in their products (for the record, I'd be more suspicious of products that "never" find any flaws -- are they just not used much, or hiding something?), the embarrassment came from the nature of the more recent flaws and, more importantly to me, the interactions between a couple of those flaws.
 
