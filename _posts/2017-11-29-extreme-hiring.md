@@ -1,7 +1,7 @@
 ---
+published: true
 author: Mike Hoskins
 layout: post
-published: true
 category: blog
 ---
 * TOC
@@ -51,7 +51,7 @@ There is a lot of welcome buzz around diversity and fairness of late, a large pa
 
 ## Recent Examples
 
-While the values speak very well for themselves (a nod to the wisdom of those who helped chose them), I wanted to take a quick tour through a recent job search and give concrete examples where the presence of practices inspired by XP values caused delight, or the absence of such practices caused something else entirely.
+While the values speak very well for themselves (a nod to the wisdom of those who helped choose them), I wanted to take a quick tour through a recent job search and give concrete examples where the presence of practices inspired by XP values caused delight, or the absence of such practices caused something else entirely.
 
 As usual, take this with a grain of salt -- it is just one person's experience.  It is based on ~30 conversations over a three- to four-week period, ranging from awesome to infuriating.  My hope is that real-world examples (with names changed to protect the innocent) will make a better case for an industry shift toward _Extreme Hiring_ than just skimming the values themselves.
 
