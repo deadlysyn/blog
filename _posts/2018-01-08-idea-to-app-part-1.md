@@ -57,7 +57,7 @@ It's amazing how the imagination runs wild as you start to think through a new i
 
 Okay, so what to call it?  While not something to get hung up on, apps need a name, logo, and social profile if they have any chance of being found useful.  While not impossible to change, settling on a high level _brand_ for your app early will mean less re-work and confusion later.  My first unoriginal idea was simply calling it _Hungry_, but partially to avoid annoying [my friends](http://hungry.com), and partially at the urging of my wife (_"It's cuter!"_), opted for _ChowChow_ as the name (unfortunately chowchow.io was taken, I am soooo bummed).
 
-<img style="float: left; margin: 1em" width=256; height=256 src="{{site.baseurl}}/media/chowchow_big.png">
+<img style="float: left; margin: 1em" width=256 height=256 src="{{site.baseurl}}/media/chowchow_big.png">
 
 Depending on what you're building, a logo and social presence could require real investment...  Since this is a simple app with no financial motivation, I cribbed [a _logo_ from iconarchive.com](http://www.iconarchive.com/show/windows-8-icons-by-icons8/Animals-Dog-Bone-icon.html) (it's available in several sizes, and will double as a good favicon), created [a GitHub repo](https://github.com/deadlysyn/chowchow), and moved along.
 
