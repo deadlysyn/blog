@@ -5,9 +5,7 @@ layout: post
 ---
 # Introduction
 
-Happy New Year!  2018 is here, and for the first blog post of the new year I wanted to start by documenting the creative process and **one possible** technology stack I am currently enjoying ([Node.js](https://nodejs.org), [Express](https://expressjs.com), [React](https://reactjs.org)) behind turning an idea into an app.  Since we need to cover a lot of ground to get from start to finish, this is going to be my first multi-part series...  it should allow better focus in each post, and make each the final result easier to navigate.
-
-Here are the currently planned sections:
+Happy New Year!  2018 is here, and for the first blog post of the new year I wanted to start by exploring the creative process and **one possible** technology stack ([Node.js](https://nodejs.org), [Express](https://expressjs.com), [React](https://reactjs.org)) behind turning an idea into an app.  Since we need to cover a lot of ground to get from start to finish, this is going to be my first multi-part series...  Here are the currently planned sections:
 
 - Ideation (you are here)
 - UI, UX and client-side concerns
@@ -16,15 +14,15 @@ Here are the currently planned sections:
 
 Since there are so many great _How To_ articles, I want to start by giving you context so you understand where this one fits...  I am not a professional developer, though my background is CSCE and I work in technology (SRE).  I am new at building modern web applications, new at working with Node and Express (an [online bootcamp](https://www.udemy.com/the-web-developer-bootcamp) and a few months of tinkering), still learning [React](https://reactjs.org) (via [another online course](https://www.udemy.com/the-advanced-web-developer-bootcamp)), and have yet to actually publish a mobile app.
 
-There will undoubtedly be imperfections and room for optimization in everything you read here -- keep in mind **this series is about sharing the overall process with an absolute beginner** vs something that will help seasoned professionals.  If you are a pro and have helpful advice, please share comments or unicast me.  I am happy to share credit and adjust content as needed so future readers have the most helpful experience possible!
+There will undoubtedly be imperfections and room for optimization in everything you read here -- keep in mind **this series is about sharing the overall process with an absolute beginner** vs something that will help seasoned professionals.  If you are a pro and have advice, please share comments or unicast me.  I am happy to share credit and adjust content as needed so future readers have the most helpful experience possible!
 
 # Ideation
 
-No matter how fun your tech stack, it's hard to produce something useful if you don't start with a good idea...  [Wikipedia](https://en.wikipedia.org/wiki/Ideation_(creative_process)) defines "ideation" as the generation of new ideas.  This sounds obvious and easy until you find yourself brainstorming and hitting a brick wall!
+No matter how fun your tech stack, it's hard to produce something useful if you don't start with a good idea...  [Wikipedia defines _ideation_](https://en.wikipedia.org/wiki/Ideation_(creative_process)) as the generation of new ideas.  This sounds obvious and easy until you find yourself brainstorming and hitting a brick wall!
 
 > _Ideation is the creative process of generating, developing, and communicating new ideas, where an idea is understood as a basic element of thought that can be either visual, concrete, or abstract._ -Wikipedia
 
-There are schools of thought around how to generate new ideas, one of my favorites is [design thinking](https://en.wikipedia.org/wiki/Design_thinking).  One technique is using the [double diamond approach](https://medium.com/seek-blog/design-thinking-101-the-double-diamond-approach-ii-4c0ce62f64c7) to generate and evaluate many ideas.  The key concept is using both divergent and convergent thinking to generate many possible solutions within a problem space.  This is 180 degrees from a common mistake -- jumping straight to a solution -- which can often blind you to related but potentially more interesting problems to solve.
+There are schools of thought around how to generate new ideas, one of my favorites is [design thinking](https://en.wikipedia.org/wiki/Design_thinking).  One technique is using the [double diamond approach](https://medium.com/seek-blog/design-thinking-101-the-double-diamond-approach-ii-4c0ce62f64c7).  The key concept is using both divergent and convergent thinking to generate many possible solutions within a problem space.  This is 180 degrees from a common mistake -- jumping straight to a solution -- which can often blind you to related but potentially more interesting (or valuable) problems to solve.
 
 # Finding Our Idea
 
@@ -36,18 +34,18 @@ Equal parts education and inspiration, Simon Sinek's [Start with Why: How Great 
 
 ## Necessity is Your Friend
 
-As frequent travelers and foodies, my wife and I were early adopters of the now ubiquitous food review site [Yelp](http://yelp.com).  As the site grew in popularity, more businesses and reviews were added.  While good in other ways, information overload began setting in -- what started as a way to find good food fast began to feel bogged down.
+As frequent travelers and foodies, my wife and I were early adopters of the now ubiquitous food review site [Yelp](http://yelp.com).  As the site grew in popularity, more businesses and reviews were added.  While good in other ways, information overload began setting in -- what started as a way to quickly find good food began to get bogged down.
 
 A scenario played itself out repeatedly...  we would be in a new city, usually just off a flight and starved to death, then leverage [Yelp](http://yelp.com) to find some chow.  Most of the time we would struggle to narrow down cuisine, try to improve our chances by prioritizing places with better reviews, and often end up deadlocked in endless opines over a handful of places that all seemed equally pleasant.
 
-Wouldn't it be nice if there was an app that could optimize this scenario for speed?  Ideally allowing minimal (so it's not cumbersome on small screens) user input, and abstracting away all the typical things we care about (good reviews, open now, etc.)?
+Wouldn't it be nice if there was an app that could optimize this scenario for speed?  Ideally allowing minimal user input (so it's not cumbersome on small screens), and abstracting away all the typical things we care about (good reviews, open now, etc.)?
 
 ## Birth of an App
 
 Fleshing it out a bit more, I envisioned something like this:
 
 - The app would need to be aware of user location (search nearby)
-- The main feature should be "food in a single click" (optimize _Time To Food_)
+- The main feature should be "good food in a single click" (optimize _Time To Food_)
 - Minimal user input, should be optional (_walk or drive_? _cheap or expensive_? etc.)
 - Present random choice from top-rated options that are open
 - Allow other choices if random choice is not satisfactory
@@ -59,9 +57,11 @@ It's amazing how the imagination runs wild as you start to think through a new i
 
 Okay, so what to call it?  While not something to get hung up on, apps need a name, logo, and social profile if they have any chance of being found useful.  While not impossible to change, settling on a high level _brand_ for your app early will mean less re-work and confusion later.  My first unoriginal idea was simply calling it _Hungry_, but partially to avoid annoying [my friends](http://hungry.com), and partially at the urging of my wife (_"It's cuter!"_), opted for _ChowChow_ as the name (unfortunately chowchow.io was taken, I am soooo bummed).
 
-Depending on what you're building, a logo and social presence could be tricky and require real investment...  Since this is a simple app with no financial motivation, I cribbed [a _logo_ from [iconarchive.com](http://www.iconarchive.com/show/windows-8-icons-by-icons8/Animals-Dog-Bone-icon.html) (it will double as a good favicon), created [a GitHub repo](https://github.com/deadlysyn/chowchow), and moved along.
+Depending on what you're building, a logo and social presence could require real investment...  Since this is a simple app with no financial motivation, I cribbed [a _logo_ from [iconarchive.com](http://www.iconarchive.com/show/windows-8-icons-by-icons8/Animals-Dog-Bone-icon.html) (it will double as a good favicon), created [a GitHub repo](https://github.com/deadlysyn/chowchow), and moved along.
 
 ![A Simple Logo]({{site.baseurl}}/media/chowchow_big.png)
+
+<img style="float: left" src="{{site.baseurl}}/media/chowchow_big.png">
 
 # Building a Mental Model
 
