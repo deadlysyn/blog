@@ -1,6 +1,6 @@
 title:               "Noisy Neighbor"
-tagline:             "Strong opinions, weakly held."
-description:         "DevOps, SRE, coding, distributed systems, scalability, space travel, fast cars, gadgets, and other random babblings in no particular order..."
+tagline:             "Perfect is a verb, not a noun."
+description:         "DevOps, SRE, coding, and other random babblings..."
 baseurl:             "/blog"
 url:                 "http://deadlysyn.com"
 production_url:      "http://deadlysyn.com"
