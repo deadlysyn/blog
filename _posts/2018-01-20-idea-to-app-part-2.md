@@ -551,7 +551,7 @@ On the last few lines, we take the `biz` object's (a Yelp API search result) add
 
 Overall, this is still a fairly clean view and achieves the desired responsiveness:
 
-![Random View on Mobile]({{site.baseurl}}/media/chowchow_random_view.jpg)
+![Random View]({{site.baseurl}}/media/chowchow_random_view.jpg)
 
 ## List
 
@@ -681,9 +681,11 @@ Here's our markup:
 
 We do a similar trick as seen in the _random view_ to feed business details to `route` and `call` functions, but use `onclick` since we'll build up a list of many results.  Check those out over in [public/js/list.js](https://github.com/deadlysyn/chowchow/blob/master/public/js/list.js).
 
+> Don't let the pursuit of perfection make you afraid to ship anything! Ship and iterate.
+
 By now, you've likely noticed some styling sneaking into our markup (things like the `background-color` on the `list-item` div).  This is an anti-pattern we'd like to avoid, but we'll just make a note to refactor later.  This was an easy way to get started.
 
-> Don't let the pursuit of perfection make you afraid to ship anything! Ship and iterate.
+![List View]({{site.baseurl}}/media/chowchow_list.jpg)
 
 # Client-Side JavaScript
 
