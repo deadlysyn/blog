@@ -25,7 +25,7 @@ $ mkdir -p ~/src; cd ~/src
 $ git clone https://github.com/deadlysyn/chowchow.git
 ```
 
-Back?  Cool.  This has been documented by others far better than I ever could, so we'll keep it brief...  If you have questions, there are lots of great references available for [Docker in general](https://docs.docker.com) (one of the most amazingly well-documented projects around!), as well as specific guides for Node.js development using Docker...like these, just to share a few:
+Back?  Cool.  This has been documented by others far better than I ever could, so we'll keep it brief...  If you have questions, there are lots of great references available for [Docker in general](https://docs.docker.com) (one of the most amazingly well-documented projects around!), as well as specific guides for [Node.js](https://nodejs.org) development using [Docker](https://www.docker.com/docker-community)...like these, just to share a few:
 
 - [The Official Guide](https://nodejs.org/en/docs/guides/nodejs-docker-webapp)
 - [A Great Medium Article on Docker+Node](https://medium.com/@sunnykay/docker-development-workflow-node-express-mongo-4bb3b1f7eb1e) (Though we're not using MongoDB here)
@@ -51,7 +51,7 @@ CMD [ "npm", "start" ]
 
 Key things to note:
 
-- We just pull the latest Node.js image as a starting point (you might want to lock this down to a specific version for a production app)
+- We just pull the latest [Node.js](https://nodejs.org) image as a starting point (you might want to lock this down to a specific version for a production app)
 - We create `/app` within the container as our working directory (more on this later)
 - We copy `package.json` from the current directory (e.g. our cloned GitHub repo) and install all project dependencies with `npm install`
 - We carefully put dependency bits toward the top of the `Dockerfile` to [maximize cache hits](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#sort-multi-line-arguments)
@@ -75,9 +75,9 @@ run:
 
 This lets us `make build` to build an image from our `Dockerfile`, and `make run` to bring up our app in the container on our machine.  Note how we use `-p` to map port 3000 on our machine to port 3000 in the container.  This means you can browse `localhost:3000` to access the application during development.
 
-`IP=0.0.0.0` just gets the application listening on all available network interfaces (if you simply bind to `127.0.0.1` aka _loopback_, you won't be able to access the application from outside the container).  `API_KEY` deserves more explanation, but I want to save that for _Part 3: Backend and APIs_ so we don't muddy the waters too much here.  The big takeaway for now is that you can pass environment variables (defined in your shell when running Docker) into the container to control application behavior.
+`IP=0.0.0.0` just gets the application listening on all available network interfaces (if you simply bind to `127.0.0.1` aka _loopback_, you won't be able to access the application from outside the container).  `API_KEY` deserves more explanation, but I want to save that for _Part 3: Backend and APIs_ so we don't muddy the waters too much here.  The big takeaway for now is that you can pass environment variables (defined in your shell when running [Docker](https://www.docker.com/docker-community)) into the container to control application behavior.
 
-The `--rm` avoids leaving old versions of our container around (we want to rebuild each time we make a change), and `-v` maps our current directory into the container's `/app` we created in the Dockerfile.
+The `--rm` avoids leaving old versions of our container around (we want to rebuild each time we make a change), and `-v` maps our current directory into the container's `/app` we created in the `Dockerfile`.
 
 The last piece of this puzzle is understanding the _start command_ in our `package.json`.  Let's look at that:
 
@@ -111,7 +111,7 @@ The last piece of this puzzle is understanding the _start command_ in our `packa
 }
 ```
 
-When you first `npm init` a new project, there will be no `start` command.  We've added `"start": "nodemon app.js"` which causes the `npm start` command in our Dockerfile to run our application under supervision of `nodemon` (If you haven't heard of `nodemon`, see [here](https://nodemon.io) and [here](https://www.npmjs.com/package/nodemon)).  This causes the application to restart anytime we change JavaScript source within the project so we can easily preview changes.
+When you first `npm init` a new project, there will be no `start` command.  We've added `"start": "nodemon app.js"` which causes the `npm start` command in our `Dockerfile` to run our application under supervision of `nodemon` (If you haven't heard of `nodemon`, see [here](https://nodemon.io) and [here](https://www.npmjs.com/package/nodemon)).  This causes the application to restart anytime we change JavaScript source within the project so we can easily preview changes.
 
 For the most part you can ignore the rest of the fields for now, but if you haven't worked with `package.json` before and want a deep-dive, [check out the official documentation](https://docs.npmjs.com/files/package.json).
 
