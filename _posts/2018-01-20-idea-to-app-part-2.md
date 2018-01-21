@@ -55,7 +55,7 @@ Key things to note:
 - We create `/app` within the container as our working directory (more on this later)
 - We copy `package.json` from the current directory (e.g. our cloned GitHub repo) and install all project dependencies with `npm install`
 - We carefully put dependency bits toward the top of the `Dockerfile` to [maximize cache hits](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#sort-multi-line-arguments)
-- We `EXPOSE` port 3000 within the container (more on this later)
+- We `EXPOSE` port `3000` within the container (more on this later)
 
 Next we use what may be the world's tiniest `Makefile` to make building and running our image easier (isn't it amazing how useful _old_ tools can be?):
 
@@ -73,7 +73,7 @@ run:
 
 ```
 
-This lets us `make build` to build an image from our `Dockerfile`, and `make run` to bring up our app in the container on our machine.  Note how we use `-p` to map port 3000 on our machine to port 3000 in the container.  This means you can browse `localhost:3000` to access the application during development.
+This lets us `make build` to build an image from our `Dockerfile`, and `make run` to bring up our app in the container on our machine.  Note how we use `-p` to map port `3000` on our machine to port `3000` in the container.  This means you can browse `localhost:3000` to access the application during development.
 
 `IP=0.0.0.0` just gets the application listening on all available network interfaces (if you simply bind to `127.0.0.1` aka _loopback_, you won't be able to access the application from outside the container).  `API_KEY` deserves more explanation, but I want to save that for _Part 3: Backend and APIs_ so we don't muddy the waters too much here.  The big takeaway for now is that you can pass environment variables (defined in your shell when running [Docker](https://www.docker.com/docker-community)) into the container to control application behavior.
 
