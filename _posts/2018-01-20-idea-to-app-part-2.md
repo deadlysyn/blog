@@ -34,7 +34,7 @@ Back?  Cool.  This has been documented by others far better than I ever could, s
 
 Compared to those, ours is quite simple...but we have a couple things key things in common.  [Here's our Dockerfile](https://github.com/deadlysyn/chowchow/blob/master/Dockerfile):
 
-```
+```Dockerfile
 FROM node:latest
 
 RUN mkdir -p /app
@@ -159,7 +159,7 @@ I also found myself fighting the framework.  The main requirement we have is a r
 
 Since we are building a web application on a journey toward native mobile (where our app would be most useful), responsiveness is key.  While [Bootstrap](https://getbootstrap.com) provides responsiveness, it's achievable with native CSS as well.  It felt a bit silly to pull in [Bootstrap](https://getbootstrap.com) for what boiled down to a single row and column.  I found myself with something like this in each view:
 
-```HTML
+```HTMLBars
 <div class="container">
     <div class="row">
         <div class="col">
@@ -266,7 +266,7 @@ Note the use of the `transition` property to make the hover effect feel a bit be
 
 ## Home
 
-The _home view_ gives our users a starting point.  In the next part of this series we'll talk about details of defining and rendering the view in the [Express](https://expressjs.com) framework, here we want to focus on the style.  The first thing we want to do is use CSS Grid to define a layout we can map our UI elements onto.  Let's do that:
+The _home view_ gives our users a starting point.  In the next part of this series we'll talk about details of defining and rendering the view in the [Express](https://expressjs.com) framework, here we want to focus on the style.  The first thing we want to do is use CSS Grid to define a layout we can map our UI elements onto:
 
 ```CSS
 #home {
@@ -290,9 +290,11 @@ grid-template-areas:
 
 While useful for visualizing multi-column layouts, it seems a bit unwieldy for simple pages like this where we only have a single column so I merged everything onto one line.  Either way works just fine.  Which do you prefer?
 
-Why do this in an `id`?  Because we will have a specific grid layout per view, and only need to use each layout once (a requirement for CSS `id`s vs `class`es like Bootstrap's `row` and `column` which can be re-used).  OK, great...so how do we use this?  While refactoring, I got over-zealous (I might regret it later) and decided to eliminate as many extraneous wrappers as possible.  I didn't want the equivalent of `<div class="container"></div>`, so chose to map the grid definitions to my `<body>` elements.  Here's what we see in `views/home.ejs`:
+Why do this in an `id`?  Because we will have a specific grid layout per view, and only need to use each layout once (a requirement for CSS ids vs classes like Bootstrap's `row` and `column` which can be re-used).
 
-```HTML
+OK, great...so how do we use this?  While refactoring, I got over-zealous (I might regret it later) and decided to eliminate as many extraneous wrappers as possible.  I didn't want the equivalent of `<div class="container"></div>`, so chose to map the grid definitions to my `<body>` elements.  Here's what we see in `views/home.ejs`:
+
+```HTMLBars
 <% include partials/header %>
 <body id="home">
   ...
@@ -342,11 +344,11 @@ Now that we've got a grid, and it's mapped onto our page...  let's add some cont
 
 We use `grid-area` to map elements onto our grid, and relative sizes for `height` and `width` to get the desired responsiveness (`vh` stands for _[view height](https://web-design-weekly.com/2014/11/18/viewport-units-vw-vh-vmin-vmax)_).  This mostly gets the desired behavior on the platforms I can easily test (Chrome, Firefox and Safari on MacOS, as well as mobile Safari on an iPhone 7), but is almost certainly not the best way to do it (finding all the neato ways designs break on various devices is part of the fun of being a web developer).
 
-When I first tested this, I tweaked the heights to look just right in _developer tools_ at 320 x 480.  When I tested on the iPhone, it was close but didn't quite fit the screen.  Be aware it can take some patience and a bit of trickery to find a good middle ground that mostly works on all devices.  :-)
+When I first tested this, I tweaked the heights to look just right in _developer tools_ at 320 x 480.  When I tested on the iPhone, it was close but didn't quite fit the screen...  Not a major surprise given resolution differences, but don't assume every device is happy just because something looks good in a simulator.  Be aware it can take some patience and a bit of trickery to find a good middle ground that mostly works on all devices.  :-)
 
 Let's look at the home view's markup:
 
-```HTML
+```HTMLBars
 <% include partials/header %>
 <body id="home">
     <script defer src="/js/home.js"></script>
@@ -374,13 +376,13 @@ Let's look at the home view's markup:
 <% include partials/footer %>
 ```
 
-The `price` and `drive` inputs are controlled by JavaScript associated with the divs which have similarly-named `id`s.  We'll look at more of that code in a future part of this series, or you can [check it out in GitHub](https://github.com/deadlysyn/chowchow/blob/master/public/js/home.js).  As we'll see below, we auto-fill the `latitude` and `longitude` inputs using results we get back from `geolocation`.  When the user submits the form, these will be passed along to Yelp's API.  A future feature could be allowing the user to enter a zip code if location is unavailable.
+The `price` and `drive` inputs are controlled by JavaScript associated with the divs which have similarly-named ids.  We'll look at more of that code in a future part of this series, or you can [check it out in GitHub](https://github.com/deadlysyn/chowchow/blob/master/public/js/home.js).  As we'll see below, we auto-fill the `latitude` and `longitude` inputs using results we get back from `geolocation`.  When the user submits the form, these will be passed along to Yelp's API.  A future feature could be allowing the user to enter a zip code if location is unavailable.
 
-Comparing everything from there down, we can see how removing [Bootstrap](https://getbootstrap.com) has really simplified our layout.  Our markup now neatly corresponds to design elements.  No more extraneous `container`s, `row`s or `column`s let alone class names like `col-xs-12` which are not at all obvious unless you've spent time with the documentation!
+Overall, we can see how removing [Bootstrap](https://getbootstrap.com) has really simplified our layout.  Our markup now neatly corresponds to design elements.  No more extraneous `container`s, `row`s or `column`s let alone class names like `col-xs-12` which are not at all obvious unless you've spent time with the documentation!
 
-Those weird `<% %>` tags signify EJS (Embedded JavaScript templates)...  The small amount of EJS here is pretty clear, we simply include a header and a footer to avoid having to type common bits like `<html></html>` in every view.  Where you see things like `<%= var %>`, we're simply including a variable from our application in the template.  One thing we need to understand is a bit of magic included in `views/partials/header.ejs`:
+Those weird `<% %>` tags signify EJS ([Embedded JavaScript templates](http://www.ejs.co))...  The small amount of EJS here is pretty clear, we simply include a header and a footer to avoid having to type common bits like `<html></html>` in every view.  Where you see things like `<%= var %>`, we're simply including a variable from our application in the template.  One thing we need to understand is a bit of magic included in `views/partials/header.ejs`:
 
-```HTML
+```HTMLBars
 <!doctype html>
 <html lang="en">
     <head>
@@ -506,7 +508,7 @@ In `views/random.ejs` we'll use CSS grid for our layout again...but define a com
 
 One thing worth noting is the `js-*` naming convention for some of the elements.  That's a signal those elements are tied to JavaScript (which we'll get to later).  In a project of this size it's not a big deal, but will make maintenance easier as our codebase grows.  It's [another fine idea I didn't have to come up with myself](https://medium.freecodecamp.org/css-naming-conventions-that-will-save-you-hours-of-debugging-35cea737d849)!  Here's the markup:
 
-```HTML
+```HTMLBars
 <% include partials/header %>
 <body id="random">
     <script defer src="/js/random.js"></script>
@@ -647,7 +649,7 @@ The main thing to note is how we are mixing the familiar grid layout with `displ
 
 Here's our markup:
 
-```HTML
+```HTMLBars
 <% include partials/header %>
 <body id="list">
     <script defer src="/js/list.js"></script>
