@@ -161,7 +161,7 @@ Since we are building a web application on a journey toward native mobile (where
 
 ```HTML
 <div class="container">
-	<div class="row">
+    <div class="row">
         <div class="col">
         </div>
     </div>
