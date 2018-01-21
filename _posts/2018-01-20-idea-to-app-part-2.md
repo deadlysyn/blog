@@ -685,7 +685,7 @@ We do a similar trick as seen in the _random view_ to feed business details to `
 
 By now, you've likely noticed some styling sneaking into our markup (things like the `background-color` on the `list-item` div).  This is an anti-pattern we'd like to avoid, but we'll just make a note to refactor later.  This was an easy way to get started.
 
-![List View]({{site.baseurl}}/media/chowchow_list.jpg)
+![List View]({{site.baseurl}}/media/chowchow_list_view.jpg)
 
 # Client-Side JavaScript
 
