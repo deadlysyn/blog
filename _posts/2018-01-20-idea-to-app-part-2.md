@@ -159,7 +159,7 @@ I also found myself fighting the framework.  The main requirement we have is a r
 
 Since we are building a web application on a journey toward native mobile (where our app would be most useful), responsiveness is key.  While [Bootstrap](https://getbootstrap.com) provides responsiveness, it's achievable with native CSS as well.  It felt a bit silly to pull in [Bootstrap](https://getbootstrap.com) for what boiled down to a single row and column.  I found myself with something like this in each view:
 
-```HTMLBars
+```HTML
 <div class="container">
     <div class="row">
         <div class="col">
@@ -294,7 +294,7 @@ Why do this in an `id`?  Because we will have a specific grid layout per view, a
 
 OK, great...so how do we use this?  While refactoring, I got over-zealous (I might regret it later) and decided to eliminate as many extraneous wrappers as possible.  I didn't want the equivalent of `<div class="container"></div>`, so chose to map the grid definitions to my `<body>` elements.  Here's what we see in `views/home.ejs`:
 
-```HTMLBars
+```HTML
 <% include partials/header %>
 <body id="home">
   ...
@@ -348,7 +348,7 @@ When I first tested this, I tweaked the heights to look just right in _developer
 
 Let's look at the home view's markup:
 
-```HTMLBars
+```HTML
 <% include partials/header %>
 <body id="home">
     <script defer src="/js/home.js"></script>
@@ -382,7 +382,7 @@ Overall, we can see how removing [Bootstrap](https://getbootstrap.com) has reall
 
 Those weird `<% %>` tags signify EJS ([Embedded JavaScript templates](http://www.ejs.co))...  The small amount of EJS here is pretty clear, we simply include a header and a footer to avoid having to type common bits like `<html></html>` in every view.  Where you see things like `<%= var %>`, we're simply including a variable from our application in the template.  One thing we need to understand is a bit of magic included in `views/partials/header.ejs`:
 
-```HTMLBars
+```HTML
 <!doctype html>
 <html lang="en">
     <head>
@@ -508,7 +508,7 @@ In `views/random.ejs` we'll use CSS grid for our layout again...but define a com
 
 One thing worth noting is the `js-*` naming convention for some of the elements.  That's a signal those elements are tied to JavaScript (which we'll get to later).  In a project of this size it's not a big deal, but will make maintenance easier as our codebase grows.  It's [another fine idea I didn't have to come up with myself](https://medium.freecodecamp.org/css-naming-conventions-that-will-save-you-hours-of-debugging-35cea737d849)!  Here's the markup:
 
-```HTMLBars
+```HTML
 <% include partials/header %>
 <body id="random">
     <script defer src="/js/random.js"></script>
@@ -649,7 +649,7 @@ The main thing to note is how we are mixing the familiar grid layout with `displ
 
 Here's our markup:
 
-```HTMLBars
+```HTML
 <% include partials/header %>
 <body id="list">
     <script defer src="/js/list.js"></script>
@@ -759,7 +759,7 @@ As we saw above, we receive `address` from the rendered views (`random` and `lis
 
 In the EJS templates above, I'm sure you noticed references to the `shorten` and `stars` functions.  We make these available in our templates by attaching them to `app.locals`, [an Express feature](https://expressjs.com/en/api.html#app.locals) allowing us to leverage the power of custom functions within our templates.
 
-These let us shorten the length of strings used in our templates (some can get quite long causing misbehavior on small screens) and represent ratings as graphical stars.  Note the use of a default value for `shorten`'s `len` argument, that way things mostly work as expected if we forget to pass a second argument at all:
+These let us shorten the length of strings used in our templates (some can get quite long causing misbehavior on small screens) and represent ratings as graphical stars.  Note the use of a default value for `shorten`'s `len` argument, that way things mostly work as expected if we forget to pass a second argument:
 
 ```JavaScript
 /*
