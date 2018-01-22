@@ -8,7 +8,7 @@ layout: post
 Happy New Year!  2018 is here, and for the first blog post of the new year I wanted to start by exploring the creative process and **one possible** technology stack ([Node.js](https://nodejs.org), [Express](https://expressjs.com), [React](https://reactjs.org)) behind turning an idea into an app.  Since we need to cover a lot of ground to get from start to finish, this is going to be my first multi-part series...  Here are the currently planned sections:
 
 - Ideation (you are here)
-- UI, UX and client-side concerns
+- [UI, UX and client-side concerns](http://deadlysyn.com/blog//2018/01/20/idea-to-app-part-2)
 - Backend and APIs
 - Deployment
 
@@ -150,3 +150,5 @@ That was quite a journey for an introduction...  but it should lay a nice founda
 I hope you'll follow the series as our simple app idea continues to evolve...
 
 Thanks for reading!
+
+[Continue to Part 2...](http://deadlysyn.com/blog//2018/01/20/idea-to-app-part-2)
