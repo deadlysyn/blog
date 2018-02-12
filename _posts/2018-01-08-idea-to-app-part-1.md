@@ -9,7 +9,7 @@ Happy New Year!  2018 is here, and for the first blog post of the new year I wan
 
 - Ideation (you are here)
 - [UI, UX and client-side concerns](http://deadlysyn.com/blog//2018/01/20/idea-to-app-part-2)
-- Backend and APIs
+- [Backend and APIs](http://deadlysyn.com/blog//2018/02/11/idea-to-app-part-3)
 - Deployment
 
 Since there are so many great _How To_ articles, I want to start by giving you context so you understand where this one fits...  I am not a professional developer, though my background is CSCE and I work in technology (SRE).  I am new at building modern web applications, new at working with Node and Express (an [online bootcamp](https://www.udemy.com/the-web-developer-bootcamp) and a few months of tinkering), still learning [React](https://reactjs.org) (via [another online course](https://www.udemy.com/the-advanced-web-developer-bootcamp)), and have yet to actually publish a mobile app.
