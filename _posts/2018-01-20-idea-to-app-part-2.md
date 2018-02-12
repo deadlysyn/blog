@@ -11,7 +11,7 @@ This is where things start to get fun!  We can finally delve deeper into _code_ 
 
 - [Ideation](http://deadlysyn.com/blog//2018/01/08/idea-to-app-part-1) (Part 1)
 - UI, UX and client-side concerns (you are here)
-- Backend and APIs
+- [Backend and APIs](http://deadlysyn.com/blog//2018/02/11/idea-to-app-part-3)
 - Deployment
 
 Let's get started!
@@ -803,4 +803,4 @@ We still have a sort of _hybrid web app_ vs a true mobile application, but it's 
 
 In case you haven't already figured it out, the SVG background pattern we're using comes from [heropatterns.com](http://www.heropatterns.com) (which I came across while listening to the [Full Stack Radio](http://www.fullstackradio.com) podcast).  The icons we leverage for our app's buttons come from [Font Awesome 5](https://fontawesome.com/get-started).
 
-See you next time!
+[Continue to the next part of this series...](http://deadlysyn.com/blog//2018/02/11/idea-to-app-part-3)
