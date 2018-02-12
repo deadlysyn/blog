@@ -2,6 +2,11 @@
 published: true
 author: Mike Hoskins
 layout: post
+tags:
+  - backend
+  - javascript
+  - web
+category: development
 ---
 # Introduction
 
