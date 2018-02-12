@@ -3,6 +3,7 @@ published: true
 author: Mike Hoskins
 layout: post
 tags:
+  - frontend
   - javascript
   - web
 category: development
