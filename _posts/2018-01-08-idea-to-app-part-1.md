@@ -2,6 +2,10 @@
 published: true
 author: Mike Hoskins
 layout: post
+tags:
+  - javascript
+  - web
+category: development
 ---
 # Introduction
 
