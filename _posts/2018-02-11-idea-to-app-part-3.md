@@ -5,7 +5,7 @@ layout: post
 ---
 # Introduction
 
-In the first two parts of this series we bootstrapped our idea and got the basic UI ready for a responsive webapp.  I'll be honest, getting this part out took longer than I'd hoped because of being distracted ramping up at a new job...  :-)  I feel like some of the points I wanted to share have slipped into the ether, so this will be a quicker tour than hoped.
+In the first two parts of this series we bootstrapped our idea and got the basic UI ready for a responsive webapp.  Getting this part out took longer than I'd hoped because of being distracted ramping up at a new job...  I feel like some of the points I wanted to share have slipped into the ether, so this will be a quicker tour than originally hoped.
 
 Just in case you forgot, here's the outline of our _Idea to App_ series:
 
@@ -13,17 +13,17 @@ Just in case you forgot, here's the outline of our _Idea to App_ series:
 - [UI, UX and client-side concerns](http://deadlysyn.com/blog/2018/01/20/idea-to-app-part-2)
 - Backend and APIs (you are here)
 
-I'd originally planned a _Deployment_ section as well...but have decided this will be the last part in this series.  Perhaps I'll touch on deployment aspects of typical web and mobile apps in a future series.  ChowChow is a simple app deployed atop Heroku so there is not too much to share that isn't in [their excellent docs](https://devcenter.heroku.com/categories/reference)!
+I'd originally planned a _Deployment_ section as well...but decided this will be the last part in this series.  Perhaps I'll touch on deployment aspects of typical web and mobile apps in a future series.  ChowChow is a simple app deployed atop Heroku, so there is not much to share that isn't already in [their excellent docs](https://devcenter.heroku.com/categories/reference)!
 
-To make up for that, based on how well I manage to split time amongst work (SRE is fun enough it's often hard to tear yourself away!), actual coding, learning new stuff and blogging...  a more interesting topic may be circling back over our finished app and refactoring (add more error handling, make better use of newer ES features such as promises, cleanup based on [Airbnb's style guide](http://airbnb.io/javascript), etc.).
+To make up for that, based on how well I manage to split time amongst work (SRE is fun enough it's often hard to tear yourself away!), actual coding, learning new stuff and blogging...  a more interesting topic may be circling back over our finished app and doing some refactoring (add more error handling, make better use of newer ES features such as promises, cleanup based on [Airbnb's style guide](http://airbnb.io/javascript), etc.).
 
 **Remember to [clone the repository](https://github.com/deadlysyn/chowchow) to follow along...**
 
 # Using the Environment
 
-One of the first things we need to take care of when designing most modern apps is managing sensitive data.  The common practice is to read these values from the environment, which can then be injected via credential management utilities, set via build-tool configuration, etc.
+One of the first things we need to take care of when designing modern apps is managing sensitive data.  The common practice is to read these values from the environment, which can then be injected via credential management utilities, set via CI/CD tools, etc.
 
-Leveraging the environment isn't limited to sensitive information you don't want checked into version control...  it can also be passed to control behavior (e.g. dev vs prod) or read dynamic information like the listen address.  With [Node.js](https://nodejs.org), we use `process.env` for that.
+Leveraging the environment isn't limited to sensitive information you don't want checked into version control...  it can also be used to control behavior (e.g. dev vs prod) or read dynamic information like the listen address.  With [Node.js](https://nodejs.org), we use `process.env` for that.
 
 ChowChow is simple enough we don't have much to worry about, but we do need to read the IP address and port from the environment (so things work on my laptop as well as my hosting provider).  We also have a secret key used by [express-session](https://www.npmjs.com/package/express-session) (provides lightweight session management).
 
@@ -33,13 +33,15 @@ var port = parseInt(process.env.PORT, 10) || 3000
 var secret = process.env.SECRET || 'some random string'
 ```
 
-The special address `0.0.0.0` just listens on all available interfaces (which might be my laptop's loopback or ethernet address at home, or a container's virtual NIC atop a platform like Heroku).  I could set this to `127.0.0.1` and have it work just as easily at home, but that would usually break when shipping the app so `0.0.0.0` is easier to manage.  If you are concerned about binding to all available interfaces on your laptop (hopefully you run a firewall), you could use `127.0.0.1` then set the `IP` environment variable on startup.  `PORT` is very similar so I won't dwell on it, just note how you can either pass in a `PORT` environment variable or let it default to `3000`.  You would set these via shell as `export NAME = value` or perhaps some mechanism like Heroku's [config vars](https://devcenter.heroku.com/articles/config-vars).
+The special address `0.0.0.0` just listens on all available interfaces (which might be my laptop's loopback or ethernet address at home, or a container's virtual NIC atop a platform like Heroku).  I could set this to `127.0.0.1` and have it work just as easily at home, but that would usually break when shipping the app so `0.0.0.0` is easier to manage.
+
+If you are concerned about binding to all available interfaces on your laptop (hopefully you run a firewall), you could use `127.0.0.1` then set the `IP` environment variable on startup.  `PORT` is very similar so I won't dwell on it, just note how you can either pass in a `PORT` environment variable or let it default to `3000`.  You would set these via shell as `export NAME = value` or a mechanism like [Heroku's config vars](https://devcenter.heroku.com/articles/config-vars).
 
 Last but not least, `secret` will default to `some random string` just to make dev easier, but for production we'll set the `SECRET` environment variable in our environment, container, build tool, or hosting provider...this way the real secret is not checked into GitHub.  Easy, right?
 
 # Dev vs Production
 
-I've really been having fun learning [Express](https://expressjs.com), but if you are shipping a real app one of the first things you'll need to change (it's no secret, all the docs make it clear!) is [express-session's](https://www.npmjs.com/package/express-session) `MemoryStore`.  It's a great starting point for prototyping, but will leak memory in production (from what I understand, it just doesn't bother with expiry).
+I've really been having fun using [Express](https://expressjs.com), but if you are shipping a real app one of the first things you'll need to change (it's no secret, all the docs make it clear!) is [express-session's](https://www.npmjs.com/package/express-session) `MemoryStore`.  It's a great starting point for prototyping, but will leak memory in production (from what I understand, it just doesn't bother with expiry).
 
 [There are a TON of options for backing stores](https://www.npmjs.com/package/express-session#compatible-session-stores) (you might, for example, want sessions stored in MongoDB or a SQL database), but sticking to our theme of simplicity, [memorystore](https://www.npmjs.com/package/memorystore) works very similarly to the default without the memory leaks.  Perfect!  Let's configure that for ChowChow:
 
@@ -58,7 +60,7 @@ app.use(session({
 
 # Middleware
 
-As mentioned earlier in the series, the tech stack we chose for this experiment was Node.js and Express...  In this ecosystem, a common theme is keeping code responsible for routes clean by factoring functions doing heavy lifting into [middleware](https://expressjs.com/en/guide/writing-middleware.html).
+As mentioned earlier in the series, the stack we chose for this experiment was [Node.js](https://nodejs.org) and [Express](https://expressjs.com)...  In this ecosystem, a common theme is keeping code responsible for routes clean by factoring functions doing heavy lifting into [middleware](https://expressjs.com/en/guide/writing-middleware.html).
 
 You can chain middleware functions together for flexibility, passing results around via session or return values.  Let's see a simple case of this in our app...  first, in `app.js`, the `/random` route responsible for showing a randomly selected restaurant near the user looks quite clean:
 
@@ -80,7 +82,7 @@ Let's dig into `parseRequest`...
 
 # API Wrangling
 
-The bulk or our functionality comes from the [Yelp Fusion API](https://www.yelp.com/developers/documentation).  The poorly named `parseRequest` (honest, it felt like a good name at the time for reasons code _might_ make clear; if not, add an item to our refactor list!) is the _middleware_ responsible for massaging our app's inputs (things like latitude and longitude obtained from `geolocation` discussed in [the previous part of this series](http://deadlysyn.com/blog/2018/01/20/idea-to-app-part-2)) and getting API results.
+The bulk of our functionality comes from the [Yelp Fusion API](https://www.yelp.com/developers/documentation).  The poorly named `parseRequest` (honest, it felt like a good name at the time for reasons the code _might_ make clear; if not, add an item to our refactor list!) is the _middleware_ responsible for massaging our app's inputs (things like latitude and longitude obtained from `geolocation` discussed in [the previous part of this series](http://deadlysyn.com/blog/2018/01/20/idea-to-app-part-2)) and getting API results.
 
 This is still longer than I'd like, even after factoring out a few lines to a helper function, but here's a look at `parseRequest` as it stands:
 
@@ -162,15 +164,15 @@ function searchYelp(queryString, callback) {
 }
 ```
 
-First, we build up a `options` object to control the behavior of `https.get`.  Most of these are simple `const`s further up in the file, but `APIKEY` is read from the environment (after all, it's sensitive data we don't want checked into git!) via the familiar `process.env.API_KEY`.
+First, we build a `options` object to control the behavior of `https.get`.  Most of these are simple `const`s further up in the file, but `APIKEY` is read from the environment (after all, it's sensitive data we don't want checked into git!) via the familiar `process.env.API_KEY`.
 
-The most interesting (perhaps?) part of this is the use of `https.get`.  We could have used any number of options for this request...  my first instinct was to use something familiar (learned in a class); [the request module](https://www.npmjs.com/package/request).  Aside from being most familiar with it, it's also similar to the Python's requests library.  One real down-side for our app (trying to optimize for simplicity) is the sheer number of dependencies.
+The most interesting (perhaps?) part of this is the use of `https.get`.  We could have used any number of options for this request...  my first instinct was to use something familiar; [the request module](https://www.npmjs.com/package/request).  Aside from exercising it in a recent class, it's also similar to [Python's requests library](http://docs.python-requests.org/en/master).  One real down-side for our app (trying to optimize for simplicity) is the sheer number of dependencies...a bit heavy-weight given our simple use case.
 
 Some other options are [Axios](https://www.npmjs.com/package/axios), [wrapping promises around request](https://www.npmjs.com/package/request-promise-native), or [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)...I chose `https.get` because it is part of the standard library, and I found the way it treats responses as streams interesting!  What would you use?
 
 Since the `https.get` response is a stream, we declare `body` as a block-level variable and append data to it until we receive the `end` event.  Then we call back with our response data ready for use.
 
-NOTE: We didn't even scratch the surface on the many ways you could make HTTP requests with Javascript/Node...  [Check this out](https://www.twilio.com/blog/2017/08/http-requests-in-node-js.html).
+_NOTE: We didn't even scratch the surface on the many ways you could make HTTP requests with Javascript/Node...  [Check this out](https://www.twilio.com/blog/2017/08/http-requests-in-node-js.html)._
 
 # Summary
 
