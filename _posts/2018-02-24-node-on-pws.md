@@ -12,7 +12,7 @@ I was eager to give [Heroku](https://devcenter.heroku.com) a spin since many res
 
 Recently I started working for [Pivotal](https://pivotal.io) focused on cloud native architecture and service delivery via [Cloud Foundry](https://www.cloudfoundry.org/the-foundry/pivotal-cloud-foundry) (_PCF_). Specifically, the _Platform Reliability Team_ helps customers understand, adopt and apply [Site Reliability Engineering principles](https://landing.google.com/sre/book/chapters/part2.html) within their organizations.
 
-To better understand the PCF developer experience, I decided to see how hard it would be to migrate [my Heroku-based application](https://github.com/deadlysyn/chowchow) to [Pivotal Web Services](https://run.pivotal.io) (_PWS_). _PWS_, or _P-Dubs_ as we affectionately call it, is a fully-managed version of PCF hosted atop public cloud infrastructure very similar to Heroku.  There's a polished UI, extensive CLI, [extensive documentation](https://docs.run.pivotal.io), and [buildpacks for many popular languages](https://docs.run.pivotal.io/buildpacks/index.html) at [reasonable prices](https://run.pivotal.io/pricing).
+To better understand the PCF developer experience, I decided to see how hard it would be to migrate [my Heroku-based application](https://github.com/deadlysyn/chowchow) to [Pivotal Web Services](https://run.pivotal.io) (_PWS_). _PWS_, or _P-Dubs_ as we affectionately call it, is a fully-managed version of PCF hosted atop public cloud infrastructure very similar to Heroku.  There's a polished UI, CLI, [extensive documentation](https://docs.run.pivotal.io), and [buildpacks for many popular languages](https://docs.run.pivotal.io/buildpacks/index.html) at [reasonable prices](https://run.pivotal.io/pricing).
 
 # Getting Started
 
@@ -22,9 +22,9 @@ The tutorial is based on a simple app using the [Java Build Back](https://docs.r
 
 # Setup
 
-Not having migrated from one PaaS to another before, I wasn't entirely sure what obstacles I would encounter.  The good news is, it was fairly painless.  Following 12-factor principles from the start meant no application refactoring was required, and configuration was easily passed around through the environment.
+Not having migrated from one PaaS to another before, I wasn't entirely sure what obstacles I would encounter.  The good news is, it was fairly painless.  Following twelve-factor principles from the start meant no application refactoring was required, and configuration was easily passed around through the environment.
 
-The first thing different I did need was a [deployment manifest](https://docs.run.pivotal.io/devguide/deploy-apps/manifest.html).  This is a [YAML](https://en.wikipedia.org/wiki/YAML) configuration, typically named _manifest.yml_, allowing you to control almost every aspect of your application's deployment.  While something extra to keep track of, this is similar to other PaaS-specific metadata like Heroku's _Procfile_.
+The first new concept I needed to grasp was a [deployment manifest](https://docs.run.pivotal.io/devguide/deploy-apps/manifest.html).  This is a [YAML](https://en.wikipedia.org/wiki/YAML) configuration, typically named _manifest.yml_, allowing you to control almost every aspect of your application's deployment.  While something extra to keep track of, this is similar to other PaaS-specific metadata like Heroku's _Procfile_.
 
 It's best to start small, then iterate to add parameters as needed...  To get started, I just grabbed the skeleton from [the tutorial app's repo](https://github.com/cloudfoundry-samples/cf-sample-app-spring) and adjusted a couple parameters:
 
@@ -127,13 +127,13 @@ The UI is also lightweight and responsive:
 
 If you want to go deeper on Cloud Foundry specifics, [the documentation is the place to start](https://docs.run.pivotal.io)...  A couple key concepts we glossed over above were [routes](https://docs.run.pivotal.io/devguide/deploy-apps/routes-domains.html) and [spaces](https://docs.cloudfoundry.org/concepts/roles.html).  Since they are so central to hosting an application, I wanted to briefly describe both of those here.
 
-The term _route_ within the PCF ecosystem usually refers to the hostname portion of a FQDN ([Fully Qualified Domain Name](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)).  In our example above, the FQDN was `chowchow-fantastic-waterbuck.cfapps.io` and the route was `chowchow-fantastic-waterbuck`.  It's also possible to have _context specific routes_ which allow different micro-services hosted under the same top-level domain name to be reached via URIs.  An example of that would be `example.com/foo` and `example.com/bar` where `/foo` and `/bar` are different applications.  This is highly flexible, and allows you to easily scale-out specific parts of your application regardless of how you chose to present it to the Internet.
+The term _route_ within the PCF ecosystem usually refers to the hostname portion of a FQDN ([Fully Qualified Domain Name](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)).  In our example above, the FQDN was `chowchow-fantastic-waterbuck.cfapps.io` and the route was `chowchow-fantastic-waterbuck`.  It's also possible to have _context specific routes_ which allow different micro-services hosted under the same top-level domain name to be reached via URIs.  An example of that would be _example.com/foo_ and _example.com/bar_ where _/foo_ and _/bar_ are routed to different applications.  This is highly flexible, and allows you to easily scale-out specific parts of your service regardless of how you chose to present it to the Internet.
 
-Spaces are part of Cloud Foundry's authorization scheme.  This is a hierarchy...  Every project will have one or more _organizations_ (above this was `deadlysyn-org`), which in turn have one or more _spaces_, which have one or more _users_ and _applications_ with RBAC ([Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control)).  We deployed to the `development` space which was created for us by default, but this is again as flexible as you need it to be in complex multi-tenant environments.
+_Spaces_ are part of Cloud Foundry's authorization scheme.  This is a hierarchy...  Every project will have one or more _organizations_ (in our example this was `deadlysyn-org`), which in turn have one or more _spaces_, each of which have one or more _users_ and _applications_ all governed by RBAC ([Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control)).  We deployed to the `development` space which was created for us by default, but this is again as flexible as you need it to be in complex multi-tenant environments.
 
 # Conclusion
 
-I encountered one _oops_ during this journey...  While `cf push` worked, in my haste to see everything work I'd forgotten to properly set up the environment.  We could [add environment variables to our deployment manifest](https://docs.run.pivotal.io/devguide/deploy-apps/manifest.html#env-block), but that is really for non-sensitive information (think things like `NODE_ENV`).
+I encountered one _oops_ during this journey...  While `cf push` worked, in my haste to get everything going I'd forgotten to properly set up the environment.  We could [add environment variables to our deployment manifest](https://docs.run.pivotal.io/devguide/deploy-apps/manifest.html#env-block), but that is really for non-sensitive information (think things like `NODE_ENV`).
 
 For sensitive bits you don't want checked into source control, keep them out of the deployment manifest...  The mechanism I used instead was `cf env`.  This is similar to Heroku's `config vars`.  You can define variables at deploy time, adjust them while the service is running, and they persist across deployments (so you don't lose settings when orchestrating new instances).
 
@@ -208,6 +208,6 @@ With that, we have a properly configured version of our app up and running! The 
 
 Best practices like [Twelve-Factor](https://12factor.net) ensured that everything mostly just worked after applying configuration by adjusting the runtime environment.  We did have to learn about _deployment manifests_ and make minor adjustments to `package.json`, but these were relatively minor changes that are well-documented and not unlike specifics we would have to learn when embracing and customizing any PaaS.
 
-Overall, I'm happy to report migrating our simple application to a new PaaS was relatively straightforward... The simple app used here just scratched the surface of PWS capabilities.  They support custom DNS domains, SSL as a service, and a variety of service brokers for backing stores and other dependencies more complex services would require.
+Overall, I'm happy to report migrating our simple application to a new PaaS was relatively straightforward... though admittedly, the simple app used here just scratched the surface of PWS capabilities. They support custom DNS domains, SSL as a service, and a variety of service brokers for backing stores and other dependencies more complex services would require.
 
 Have you experimented with [Pivotal Web Services](https://run.pivotal.io)?
