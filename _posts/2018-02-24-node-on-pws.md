@@ -131,6 +131,10 @@ The term _route_ within the PCF ecosystem usually refers to the hostname portion
 
 _Spaces_ are part of Cloud Foundry's authorization scheme.  This is a hierarchy...  Every project will have one or more _organizations_ (in our example this was `deadlysyn-org`), which in turn have one or more _spaces_, each of which have one or more _users_ and _applications_ all governed by RBAC ([Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control)).  We deployed to the `development` space which was created for us by default, but this is again as flexible as you need it to be in complex multi-tenant environments.
 
+You can manage all of this from the CLI, and within the web UI it's easy to see what organiation and space you are working in.  Assuming you have the right permissions, you can also create new spaces (perhaps for other environments like staging and production, or for service teams).
+
+![pwsOrgs.jpg]({{site.baseurl}}/media/pwsOrgs.jpg)
+
 # Conclusion
 
 I encountered one _oops_ during this journey...  While `cf push` worked, in my haste to get everything going I'd forgotten to properly set up the environment.  We could [add environment variables to our deployment manifest](https://docs.run.pivotal.io/devguide/deploy-apps/manifest.html#env-block), but that is really for non-sensitive information (think things like `NODE_ENV`).
