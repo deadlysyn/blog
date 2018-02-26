@@ -18,7 +18,7 @@ To better understand the PCF developer experience, I decided to see how hard it 
 
 To start experimenting, [sign up for a free PWS account](https://try.run.pivotal.io/gettingstarted).  This is quick and easy (email, password, confirm SMS, define your _organization_ name).  With that, you can [walk through their tutorial to push your first app](https://pivotal.io/platform/pcf-tutorials/getting-started-with-pivotal-cloud-foundry/introduction).
 
-The tutorial is based on a simple app using the [Java Build Back](https://docs.run.pivotal.io/buildpacks/java/index.html) (_JBP_), but lets you install and exercise the CLI.  You don't have to worry too much about buildpacks since they are typically auto-detected, but in our case we'll be using [the appropriate version for Node.js](https://docs.run.pivotal.io/buildpacks/node/index.html)
+The tutorial is based on a simple app using the [Java Build Back](https://docs.run.pivotal.io/buildpacks/java/index.html) (_JBP_), but lets you install and exercise the CLI.  You don't have to worry too much about buildpacks since they are typically auto-detected, but in our case we'll be using [the appropriate version for Node.js](https://docs.run.pivotal.io/buildpacks/node/index.html).
 
 # Setup
 
@@ -37,9 +37,9 @@ applications:
   random-route: true
 ```
 
-`random-route` enables behavior similar to Heroku's default of randomly-generating the host-part of the application URL's FQDN.  Without that, Cloud Foundry will try and use the application name...which may be what you want, or may lead to collisions in a shared name space like we have with the free tier's top-level application domain.
+`random-route` enables behavior similar to Heroku's default of randomly-generating the host-part of the application's FQDN.  Without that, Cloud Foundry will try and use the application name...which may be what you want, or may lead to collisions in a shared name space like we have with the free tier's top-level application domain.
 
-Another thing I needed to do was effectively pin my Node and NPM versions.  I had neglected that when initially deploying to Heroku, but this is a good idea for any production app lest deploying a build suddenly pull in unexpected (or expected but broken) dependencies.  To do that, I simply added a couple lines to `package.json` ([see the full version](https://github.com/deadlysyn/chowchow/blob/master/package.json)):
+Another thing I needed to do was effectively pin my Node and NPM versions.  I had neglected that when initially deploying to Heroku, but it's a good idea for any production app lest deploying a build suddenly pull in unexpected (or expected but broken) dependencies.  To do that, I simply added a couple lines to `package.json` ([see the full version](https://github.com/deadlysyn/chowchow/blob/master/package.json)):
 
 ```
 "engines": {
@@ -58,7 +58,7 @@ With that, I felt like I was in pretty good shape based on the tutorial...  Afte
 The app upload is invalid: Symlink(s) point outside of root folder
 ```
 
-Luckily, [a little Google engineering quickly led to answers](https://github.com/cloudfoundry/cli/issues/1299)...  a few related suggestions there.  The one I went with was simply creating a `.cfignore` at the top level of my application repo and adding the `node_modules` directory.  With that, `cf push` worked like magic...  reading my deployment manifest, auto-detecting the proper buildpack, and brining up a public instance with a random route name:
+Luckily, [a little Google engineering quickly led to answers](https://github.com/cloudfoundry/cli/issues/1299)...  a few related suggestions there.  The one I went with was simply creating `.cfignore` at the top level of my application repo and adding the `node_modules` directory.  With that, `cf push` worked like magic...  reading my deployment manifest, auto-detecting the proper buildpack, and bringing up a public instance with a random route name:
 
 ```
 Pushing from manifest to org deadlysyn-org / space development as x@y.z...
@@ -131,7 +131,7 @@ The term _route_ within the PCF ecosystem usually refers to the hostname portion
 
 _Spaces_ are part of Cloud Foundry's authorization scheme.  This is a hierarchy...  Every project will have one or more _organizations_ (in our example this was `deadlysyn-org`), which in turn have one or more _spaces_, each of which have one or more _users_ and _applications_ all governed by RBAC ([Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control)).  We deployed to the `development` space which was created for us by default, but this is again as flexible as you need it to be in complex multi-tenant environments.
 
-You can manage all of this from the CLI, and within the web UI it's easy to see what organiation and space you are working in.  Assuming you have the right permissions, you can also create new spaces (perhaps for other environments like staging and production, or for service teams).
+You can manage all of this from the CLI, and within the web UI it's easy to see what organization and space you are working in.  Assuming you have the right permissions, you can also create new spaces (perhaps for other environments like staging and production, or for service teams).
 
 ![pwsOrgs.jpg]({{site.baseurl}}/media/pwsOrgs.jpg)
 
