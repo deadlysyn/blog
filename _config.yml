@@ -1,6 +1,6 @@
 title:               "Noisy Neighbor"
 tagline:             "Perfect is a verb, not a noun."
-description:         "DevOps, SRE, coding, and other random babblings..."
+description:         "DevOps, SRE, coding, random babblings..."
 baseurl:             "/blog"
 url:                 "http://deadlysyn.com"
 production_url:      "http://deadlysyn.com"
@@ -11,15 +11,15 @@ publish:             true
 timezone:            "America/New_York"
 
 # Custom vars
-version:             "1.0.3"
+version:             "1.0.5"
 
 # About/contact
 author:
   name:              "Mike Hoskins"
   url:               "http://deadlysyn.com"
-  email:             "unixdoes@gmail.com"
+  email:             "mrh@deadlysyn.com"
   github:            "https://github.com/deadlysyn"
-  linkedin:          "https://www.linkedin.com/in/mikehoskins"
+  linkedin:          "https://www.linkedin.com/in/deadlysyn"
 
 prose:
   rooturl:           "_posts"
