@@ -2,14 +2,19 @@
 published: true
 author: Mike Hoskins
 layout: post
+tags:
+  - frontend
+  - javascript
+  - web
+category: development
 ---
 # Introduction
 
 Happy New Year!  2018 is here, and for the first blog post of the new year I wanted to start by exploring the creative process and **one possible** technology stack ([Node.js](https://nodejs.org), [Express](https://expressjs.com), [React](https://reactjs.org)) behind turning an idea into an app.  Since we need to cover a lot of ground to get from start to finish, this is going to be my first multi-part series...  Here are the currently planned sections:
 
 - Ideation (you are here)
-- UI, UX and client-side concerns
-- Backend and APIs
+- [UI, UX and client-side concerns](http://deadlysyn.com/blog//2018/01/20/idea-to-app-part-2)
+- [Backend and APIs](http://deadlysyn.com/blog//2018/02/11/idea-to-app-part-3)
 - Deployment
 
 Since there are so many great _How To_ articles, I want to start by giving you context so you understand where this one fits...  I am not a professional developer, though my background is CSCE and I work in technology (SRE).  I am new at building modern web applications, new at working with Node and Express (an [online bootcamp](https://www.udemy.com/the-web-developer-bootcamp) and a few months of tinkering), still learning [React](https://reactjs.org) (via [another online course](https://www.udemy.com/the-advanced-web-developer-bootcamp)), and have yet to actually publish a mobile app.
@@ -150,3 +155,5 @@ That was quite a journey for an introduction...  but it should lay a nice founda
 I hope you'll follow the series as our simple app idea continues to evolve...
 
 Thanks for reading!
+
+[Continue to Part 2...](http://deadlysyn.com/blog//2018/01/20/idea-to-app-part-2)
