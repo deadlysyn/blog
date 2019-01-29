@@ -4,12 +4,13 @@ author: Mike Hoskins
 layout: post
 category: development
 ---
-# Node Health Checks
 
 Hi folks!  I've neglected this blog lately...  I was never happy with the
 readily available themes or publishing workflow, and the idea of developing
 my own got usurped by other priorities including a lot of travel and a job
-search.  Lately, the excuses have turned into plain laziness.  It's just too
+search.
+
+Lately, the excuses have turned into plain laziness.  It's just too
 easy to publish on [Medium](https://medium.com/@deadlysyn).  While I'm not
 completely sold on locking content behind a paywall, the clean interface and
 network of great content are really appealing to me.  Some rainy day, my hope

@@ -4,7 +4,6 @@ author: Mike Hoskins
 layout: post
 category: development
 ---
-# The Notorious FSC
 
 I've been fortunate enough to have time to start learning
 [React](https://reactjs.org).
